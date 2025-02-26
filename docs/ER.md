@@ -2,6 +2,7 @@
 
 erDiagram
   users {
+    index id PK
     string password
     string sex
     string first_name
@@ -34,6 +35,7 @@ erDiagram
   }
 
   buddies {
+    index id PK
     int user_id
     int relying_user
     string description
@@ -43,6 +45,7 @@ erDiagram
   }
 
   logs {
+    index id PK
     int user_id
     int rate
     datetime dive_on
@@ -55,6 +58,7 @@ erDiagram
   }
 
   comments {
+    index id PK
     int log_id
     int user_id
     string description
@@ -65,6 +69,7 @@ erDiagram
 
   
   spots {
+    index id PK
     string name
     string address
     string phone_number
