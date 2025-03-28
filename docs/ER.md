@@ -4,7 +4,7 @@ erDiagram
   users {
     index id PK
     string password
-    string sex
+    int sex
     string first_name
     string family_name
     string display_name
@@ -12,7 +12,7 @@ erDiagram
     int height
     int weight
     int shoe_size
-    string blood_type
+    int blood_type
     string address
     string phone_number
     string email
@@ -25,49 +25,44 @@ erDiagram
     boolean is_intermediate
     boolean is_expert
     boolean is_instructor
-    boolean has_ill
+    boolean is_ill
     int dives_number
     int dives_time
-    string description
-    boolean is_deleted
     datetime created_at
     datetime updated_at
   }
 
   buddies {
     index id PK
-    int user_id
-    int relying_user
-    string description
-    boolean is_deleted
+    int user_id FK
+    int partner_id FK
     datetime created_at
     datetime updated_at
   }
 
-  logs {
+  records {
     index id PK
-    int user_id
+    int user_id FK
+    int buddy_id FK
+    int spot_id FK
+    int event_id FK
     int rate
-    datetime dive_on
-    string buddy_name
-    string spot_name
-    boolean is_public
-    boolean is_deleted
+    datetime dived_at
+    int public_range
+    string description
     datetime created_at
     datetime updated_at
   }
 
   comments {
     index id PK
-    int log_id
-    int user_id
+    int record_id FK
+    int user_id FK
     string description
-    boolean is_deleted
     datetime created_at
     datetime updated_at
   }
 
-  
   spots {
     index id PK
     string name
@@ -77,10 +72,25 @@ erDiagram
     int diver_level
     int danger_level
     int accidents_number
-    boolean has_parking
-    boolean has_shower_room
-    boolean has_locker_room
-    boolean is_deleted
+    boolean is_parking
+    boolean is_shower_room
+    boolean is_locker_room
+    datetime created_at
+    datetime updated_at
+  }
+
+  events {
+    index id PK
+    int spot_id FK
+    string name
+    datetime created_at
+    datetime updated_at
+  }
+
+  event_users {
+    index id PK
+    int event_id FK
+    int user_id FK
     datetime created_at
     datetime updated_at
   }
