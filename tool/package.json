@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "git-cz": "^4.9.0"
+  },
+  "config": {
+    "commitozen": {
+      "path": "git-cz"
+    }
+  },
+  "scripts": {
+    "commit": "npm run git-cz"
+  }
+}
